@@ -1,0 +1,48 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 600px;  /* The height is 400 pixels */
+        width: 85%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>
+    <h3>Map of St. Louis</h3>
+    <nav>
+        <a href='/'>Home</a> |
+        <a href='google'>Google Maps</a> |
+        <a href='/blog'>Everyone's Advice!</a> |
+        <a href='/newpost'>Give Advice</a> |
+        <a href='/login'>Log In</a> |
+        <a href='/signup'>Sign Up for Uber STL</a> |
+        <a href='/logout'>Log Out</a>
+    </nav>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var saint_louis = {lat: 38.6270, lng: -90.1994};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 11, center: saint_louis});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: saint_louis, map: map});
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0sZiw19k2m6EPY1pBt-oZZ_YETnOEuVg&callback=initMap">
+    </script>
+  </body>
+</html>
